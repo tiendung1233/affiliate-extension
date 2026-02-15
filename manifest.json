@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Affiliate Link Opener (Cross-Browser)",
+  "version": "1.2",
+  "description": "Opens affiliate links from the dashboard relay server.",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "alarms"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://affiliate.shopee.vn/offer/product_offer/*",
+        "https://affiliate.shopee.vn/offer/custom_link*"
+      ],
+      "js": ["content-script.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "*://*/*",
+    "http://localhost:5001/*"
+  ]
+}
